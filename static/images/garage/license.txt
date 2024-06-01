@@ -1,0 +1,11 @@
+Model Information:
+* title:	Garage
+* source:	https://sketchfab.com/3d-models/garage-ae9d12f7dad5482ca6c7d22d6a9de84e
+* author:	Ivan Obukhov (https://sketchfab.com/i3n1gmaiii)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Garage" (https://sketchfab.com/3d-models/garage-ae9d12f7dad5482ca6c7d22d6a9de84e) by Ivan Obukhov (https://sketchfab.com/i3n1gmaiii) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

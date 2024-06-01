@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Slider</title>
+    <style>
+      .body {
+        padding-left: 25px;
+      }
+      .credit {
+        position: fixed;
+        right: 2rem;
+        bottom: 2rem;
+        color: white;
+      }
+
+      .credit a {
+        color: inherit;
+      }
+
+      .phone {
+        position: relative;
+        z-index: 2;
+        width: 18rem;
+        height: 17rem;
+        background-color: inherit;
+        -webkit-box-shadow: 0 4px 35px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 35px rgba(0, 0, 0, 0.1);
+        border-radius: 40px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+
+      .content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        margin: auto;
+        text-align: center;
+        width: 70%;
+        -webkit-transform: translateY(5%);
+        -ms-transform: translateY(5%);
+        transform: translateY(5%);
+      }
+
+      .value-display {
+        font-size: 5rem; /* Large font size for better visibility */
+        color: #6f8875; /* Dark text color for contrast */
+        margin-bottom: 20px; /* Space before the slider */
+      }
+
+      .toggle-txt {
+        text-align: center;
+        font-size: 25px;
+        padding-top: 20px;
+      }
+      .wrapper {
+        position: relative;
+        margin-top: 30px;
+        transform: translateX(-10%);
+
+        height: 2rem; /* Reduced height for compact design */
+        width: 16rem; /* Reduced width to make the slider narrower */
+
+        &::before,
+        &::after {
+          display: block;
+          position: absolute;
+          z-index: 99;
+          color: #fff;
+          height: 100%;
+          text-align: center;
+          font-size: 1rem; /* Smaller font size for compact design */
+          line-height: 2rem; /* Adjusted line height for compact design */
+          padding: 0 0.5rem; /* Adjusted padding for a tighter fit */
+          pointer-events: none;
+        }
+
+        &::before {
+          content: "−";
+          left: 0;
+        }
+
+        &::after {
+          content: "+";
+          right: 0;
+        }
+      }
+
+      input[type="range"] {
+        -webkit-appearance: none;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.2
+        ); /* Updated for better cross-browser compatibility */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 0;
+        width: 16rem; /* Adjusted width */
+        height: 2rem; /* Reduced slider height */
+        border-radius: 1rem;
+        overflow: hidden;
+        cursor: row-resize;
+
+        &[step] {
+          background-color: transparent;
+          background-image: repeating-linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.2),
+            rgba(255, 255, 255, 0.2) calc(12.5% - 1px),
+            #05051a 12.5%
+          );
+        }
+
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 0;
+          box-shadow: -16rem 0 0 16rem rgba(255, 255, 255, 0.2);
+        }
+
+        &::-moz-range-thumb {
+          border: none;
+          width: 0;
+          box-shadow: -16rem 0 0 16rem rgba(255, 255, 255, 0.2);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="body">
+        <div class="phone">
+          <div class="toggle-txt">Temperature Control</div>
+          <div class="content">
+            <div class="value-display" id="sliderTemperatureValue">25°C</div>
+            <div class="wrapper">
+              <input
+                type="range"
+                id="temperatureWrapper"
+                min="0"
+                max="50"
+                value="25"
+                step="1"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

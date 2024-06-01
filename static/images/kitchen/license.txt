@@ -1,0 +1,11 @@
+Model Information:
+* title:	Modern kitchen
+* source:	https://sketchfab.com/3d-models/modern-kitchen-69273ddfe2f045579eb0646968a25000
+* author:	czarnyxhd (https://sketchfab.com/czarnyxhd)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Modern kitchen" (https://sketchfab.com/3d-models/modern-kitchen-69273ddfe2f045579eb0646968a25000) by czarnyxhd (https://sketchfab.com/czarnyxhd) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

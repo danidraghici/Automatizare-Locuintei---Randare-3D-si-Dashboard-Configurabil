@@ -1,0 +1,61 @@
+
+html, body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #363A3A;
+    background-color: #363A3A;
+    overflow: hidden;
+    height: inherit;
+  }
+  
+  main {
+    background-color: #363A3A;
+  }
+  .container {
+    display: flex;
+    background: #363A3A;
+  }
+
+
+  .sidebar {
+    flex: 0 0 250px;
+   background: #1c2020;
+    height: 840px; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    padding-top: 50px;
+    margin: 35px 20px 20px 20px;
+    border-radius: 16px;
+  }
+
+  .config-button, .save-btn, .restart-btn {
+    background: transparent;
+    border: 2px solid #555;
+    color: #2c3e50;
+    padding: 10px 20px;
+    margin: 10px 0;
+    width: 80%; 
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .config-button:hover, .save-btn:hover, .restart-btn:hover{
+    background: #555;
+    border-color: #fff; }
+  
+  .content {
+    flex: 1;
+    color: #363A3A;
+    padding: 20px;
+    height: 850px;
+  }
+  
+  .transparent-background {
+    background-color: transparent !important;
+}
+
+.save-btn {
+  margin-top: 150px;
+}

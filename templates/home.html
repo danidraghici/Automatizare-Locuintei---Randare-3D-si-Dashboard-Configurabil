@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SmartHome</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/home-style.css" />
+  </head>
+
+  <button id="chart-button">
+    Check Statistics
+    <i class="fa fa-clone" aria-hidden="true"></i>
+  </button>
+
+  <div id="chart-display-popup" class="chart-popup">
+    <span class="chart-close-button" onclick="closeChartPopup()">&times;</span>
+    <div class="graphsContainer">
+      <div class="chartContainer">
+        <div class="chartAreaWrapper">
+          <canvas id="temperatureChart"></canvas>
+        </div>
+      </div>
+      <div class="chartContainer">
+        <div class="chartAreaWrapper">
+          <canvas id="humidityChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button id="widget-button">
+    Build Your Home
+    <i class="fa fa-server" aria-hidden="true"></i>
+  </button>
+
+  <div id="widget-details-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-button" onclick="closeWidgetDetailsPopup()"
+        >&times;</span
+      >
+      <h2 id="widget-name"></h2>
+      <img id="widget-image" src="" alt="Widget Image" />
+      <div class="popup-buttons">
+        <button id="edit-popup">EDIT</button>
+        <button id="delete-popup">DELETE</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="widget-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-button" onclick="closeWidgetPopup()">&times;</span>
+      <div class="widget-title">Select Widgets</div>
+      <div id="widget-list" class="widget-list">
+        <div class="widget" onclick="addWidgetToRoom('Temperature Display')">
+          <img src="../static/images/temperature-card.png" />
+        </div>
+        <div class="widget" onclick="addWidgetToRoom('Humidity Display')">
+          <img src="../static/images/humidity-card.png" />
+        </div>
+        <div class="widget" onclick="addWidgetToRoom('Pressure Display')">
+          <img src="../static/images/pressure-card.png" />
+        </div>
+        <div class="widget" onclick="addWidgetToRoom('Altitude Display')">
+          <img src="../static/images/altitude-card.png" />
+        </div>
+        <div class="widget" onclick="addWidgetToRoom('CO2 Display')">
+          <img src="../static/images/co2-card.png" />
+        </div>
+        <div class="widget" onclick="addWidgetToRoom('IAQ Display')">
+          <img src="../static/images/iaq-card.png" />
+        </div>
+        <div class="widget" onclick="addWidgetToRoom('Lights Control')">
+          <img src="../static/images/led-card.png" />
+        </div>
+        <div class="widget" onclick="addWidgetToRoom('Security Control')">
+          <img src="../static/images/security-alert.png" />
+        </div>
+        <div class="widget" onclick="addWidgetToRoom('Leaking Control')">
+          <img src="../static/images/leak-alert.png" />
+        </div>
+        <div class="widget" onclick="addWidgetToRoom('Fire Control')">
+          <img src="../static/images/fire-alert.png" />
+        </div>
+        <div class="widget" onclick="addWidgetToRoom('Temperature Control')">
+          <img src="../static/images/temperature-slider.png" />
+        </div>
+        <div class="widget" onclick="addWidgetToRoom('Blinds Control')">
+          <img src="../static/images/blinds-slider.png" />
+        </div>
+        <div class="widget" onclick="addWidgetToRoom('Music Player')">
+          <img src="../static/images/music-card.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sensor-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-button" onclick="closeSensorPopup()">&times;</span>
+      <div class="widget-title">Select Sensor</div>
+      <div id="sensor-list" class="sensor-list">
+        <button onclick="selectSensor('Temperature Sensor')">
+          Temperature Sensor
+        </button>
+        <button onclick="selectSensor('Humidity Sensor')">
+          Humidity Sensor
+        </button>
+        <button onclick="selectSensor('Pressure Sensor')">
+          Pressure Sensor
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="led-popup" class="popup">
+    <div class="popup-content" id="led-content">
+      <span class="close-button" onclick="closeLedPopup()">&times;</span>
+      <div class="widget-title">Enter LED Number</div>
+      <input type="number" id="led-number" min="1" placeholder="LED Number" />
+      <button class="led_popup" id="set-led-button">Set LED</button>
+    </div>
+  </div>
+
+  <body>
+    <div id="nav-bar">
+      <input id="nav-toggle" type="checkbox" />
+      <div id="nav-header">
+        <a id="nav-title">YourSmart <i class="fa fa-home"></i></a>
+        <label for="nav-toggle"><span id="nav-toggle-burger"></span></label>
+        <hr />
+      </div>
+      <div id="nav-content">
+        <div id="nav-content-highlight"></div>
+      </div>
+    </div>
+
+    <div id="main-content"></div>
+    <script src="../static/js/home-script.js"></script>
+  </body>
+</html>
