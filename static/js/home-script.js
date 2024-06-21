@@ -1,5 +1,5 @@
-let arduinoURL = 'http://192.168.1.2:5000';
-let dataURL = 'http://192.168.1.5:5000';
+let arduinoURL = 'http://192.168.1.4:5000';
+let dataURL = 'http://192.168.1.6:5000';
 
 let currentRoom = '';
 let temperatureChart;
@@ -330,6 +330,7 @@ function closeWidgetDetailsPopup() {
 
 function closeWidgetPopup() {
     document.getElementById('widget-popup').style.display = 'none';
+    fetchLatestSensorData();
 }
 
 function openSensorPopup() {
@@ -338,6 +339,7 @@ function openSensorPopup() {
 
 function closeSensorPopup() {
     document.getElementById('sensor-popup').style.display = 'none';
+    fetchLatestSensorData();
 }
 
 function closeChartPopup(){
@@ -352,6 +354,7 @@ function selectSensor(sensorType, widgetName) {
     checkTemperatureSlider = true;
     fetchLatestSensorData();
     closeSensorPopup();
+    fetchLatestSensorData();
 }
 
 function showSensorPopup(sensors, widgetName, callback) {
@@ -381,6 +384,7 @@ function showSensorPopup(sensors, widgetName, callback) {
     openSensorPopup();
     closeWidgetDetailsPopup();
     closeLedPopup();
+    fetchLatestSensorData();
 }
 
 function openLedPopup(widgetName, callback) {
@@ -545,6 +549,7 @@ function restoreSavedModels() {
             sidebar.appendChild(modelElement);
         });
     }
+    fetchLatestSensorData();
 }
 
 function loadRoomContent(roomName) {
@@ -580,6 +585,7 @@ function loadWidgetsForRoom(roomName) {
             if (widgetElement) {
                 contentArea.appendChild(widgetElement);
             }
+            fetchLatestSensorData();
         });
     }).catch(error => {
         console.error("Failed to load one or more widgets", error);
@@ -673,30 +679,38 @@ window.addWidgetToRoom = function(widgetName) {
         case 'Humidity Display':
         case 'Temperature Control':
             showSensorPopup(['bme680', 'dht11'], widgetName, finalizeWidgetAddition);
+            fetchLatestSensorData();
             break;
         case 'Pressure Display':
         case 'Altitude Display':
         case 'CO2 Display':
         case 'IAQ Display':
             showSensorPopup(['bme680'], widgetName, finalizeWidgetAddition);
+            fetchLatestSensorData();
             break;
         case 'Lights Control':
             openLedPopup(widgetName, finalizeWidgetAddition);
+            fetchLatestSensorData();
             break;
         case 'Security Control':
             showSensorPopup(['pir'], widgetName, finalizeWidgetAddition);
+            fetchLatestSensorData();
             break;
         case 'Leaking Control':
             showSensorPopup(['water_level_sensor'], widgetName, finalizeWidgetAddition);
+            fetchLatestSensorData();
             break;
         case 'Fire Control':
             showSensorPopup(['mq135'], widgetName, finalizeWidgetAddition);
+            fetchLatestSensorData();
             break;
         case 'Blinds Control':
-                finalizeWidgetAddition();
-                break;
+            finalizeWidgetAddition();
+            fetchLatestSensorData();
+            break;
         case 'Music Player':
             finalizeWidgetAddition();
+            fetchLatestSensorData();
             break;
         default:
             console.error("Unsupported widget type:", widgetName);
